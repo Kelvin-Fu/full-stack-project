@@ -1,0 +1,17 @@
+{
+  "name": "planner",
+  "version": "1.0.0",
+  "description": "A personal planner that keep tracks your everyday things",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/server.js"
+  },
+  "author": "Kelvin Fu",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.1",
+    "express-session": "^1.18.0",
+    "mongodb": "^5.7.0"
+  }
+}

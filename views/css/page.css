@@ -1,0 +1,37 @@
+:root {
+  --offcanvas-width: 200px;
+  --topNavbarHeight: 118px;
+}
+
+.sidebar-nav {
+  width: var(--offcanvas-width) !important;
+}
+.sidebar-link {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sidebar-link .right-icon {
+  display: inline-flex !important;
+}
+@media (min-width: 992px) {
+  header {
+    display: none;
+    /* visibility: hidden; */
+  }
+  body {
+    overflow: auto;
+  }
+  section {
+    margin-left: var(--offcanvas-width);
+  }
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+  .sidebar-nav {
+    transform: none !important;
+    visibility: visible !important;
+    /* top: var(--topNavbarHeight) !important; */
+    /* height: calc(100% - var(--topNavbarHeight)); */
+  }
+}

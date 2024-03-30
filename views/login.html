@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using APIs</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/spacelab.min.css" />
+    <link rel="shortcut icon" href="img/favicon.png" type="imgae/x-icon" />
+  </head>
+
+  <body>
+    <div class="row vh-100 g-0">
+      <div class="col-lg-8 position-relative d-none d-lg-block">
+        <div class="bg-holder" style="background-image: url(img/icon.png)"></div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="row align-items-center justify-content-center h-100 g-0 px-4 px-sm-0">
+          <div class="col col-sm-7 col-lg7 col-xl-7">
+            <a href="#" class="justify-content-center d-flex">
+              <img src="img/icon.png" width="70" alt="" />
+            </a>
+            <!-- Sign In Page -->
+            <section id="loginSession">
+              <div class="text-center mb-4">
+                <h3 class="fw-bold">Log In</h3>
+                <p class="text-secondary">Get access to your account</p>
+              </div>
+              <form action="#" id="Login">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input type="email" name="email" class="form-control" id="username" required placeholder="Email" aria-describedby="emailHelp" />
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input type="password" name="password" class="form-control" id="password" required placeholder="Password" aria-describedby="passwordHelp" />
+                </div>
+                <div class="mb-3 row">
+                  <div class="alert alert-danger p-2 small" name="error"></div>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                  <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                </div>
+                <button type="submit" class="btn btn-info btn-large w-100" id="signin">Login</button>
+              </form>
+
+              <div class="text-center">
+                <small>Don't have an account? <a href="#" class="fw-bold" data-page="signUp">Sign Up</a></small>
+              </div>
+              <a href="index.html">shortcut to second page</a>
+            </section>
+            <!-- Sign In Page -->
+            <!-- Sign Up Page -->
+            <section id="signupSession">
+              <div class="text-center mb-4">
+                <h3 class="fw-bold">Sign Up</h3>
+                <p class="text-secondary">Create your account today</p>
+              </div>
+              <form action="#" id="Register">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input type="email" name="email" class="form-control" id="usernameReg" required placeholder="Enter your email" aria-describedby="emailHelp" />
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input type="password" name="password" class="form-control" id="passwordReg" required placeholder="Enter your password" aria-describedby="passwordHelp" />
+                </div>
+                <div class="mb-3 row">
+                  <div class="alert alert-danger p-2 small" name="error"></div>
+                </div>
+                <button type="submit" class="btn btn-info btn-large w-100 m-2" id="signup">Sign Up</button>
+              </form>
+
+              <div class="text-center">
+                <small>Already have an account? <a href="#" class="fw-bold" data-page="signIn">Sign In</a></small>
+              </div>
+            </section>
+
+            <!-- Sign Up Page -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="js/share.js"></script> -->
+    <script src="./js/auth.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
