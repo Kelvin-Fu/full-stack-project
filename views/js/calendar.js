@@ -19,19 +19,19 @@ const renderCalendar = () => {
 
   for (let i = firstDayofMonth; i > 0; i--) {
     // creating li of previous month last days
-    liTag += `<li class="inactive"><p>${lastDateofLastMonth - i + 1}</p></li>`;
+    liTag += `<li class="inactive ${months[currMonth - 1]}-${lastDateofLastMonth - i + 1}"><p>${lastDateofLastMonth - i + 1}</p></li>`;
   }
 
   for (let i = 1; i <= lastDateofMonth; i++) {
     // creating li of all days of current month
     // adding active class to li if the current day, month, and year matched
     let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
-    liTag += `<li class="${isToday}"><p>${i}</p></li>`;
+    liTag += `<li class="${isToday} ${months[currMonth]}-${i}"><p>${i}</p></li>`;
   }
 
   for (let i = lastDayofMonth; i < 6; i++) {
     // creating li of next month first days
-    liTag += `<li class="inactive"><p>${i - lastDayofMonth + 1}</p></li>`;
+    liTag += `<li class="inactive ${months[currMonth + 1]}-${i - lastDayofMonth + 1}"><p>${i - lastDayofMonth + 1}</p></li>`;
   }
   currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
   daysTag.innerHTML = liTag;

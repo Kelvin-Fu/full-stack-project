@@ -2,6 +2,7 @@
   const util = require("../models/util.js");
   const config = require("../server/config/config");
   //const Post = require("../models/post"); //要Post的資料Object
+  const postEvent = require("../models/postEvent");
   const client = util.getMongoClient(); // (false) for non local database
   const user = require(`${__dirname}/../models/user.js`);
   const bcrypt = require("bcrypt");
@@ -118,6 +119,38 @@
       res.status(200).json({ success: { email: email, message: "Register successful" } });
     } else {
       res.status(200).json({ error: { email: email, message: "Email already registered. Please try again" } });
+    }
+  });
+
+  memberController.post("/createEvent", util.logRequest, async (req, res) => {
+    console.log("\t|Inside createEvent");
+    console.log(req.session.userId);
+    const userId = req.session.userId;
+
+    //Specify db collention
+    let collection = client.db().collection(userId);
+    console.log(req.body);
+    let eventTopic = req.body.eventTitle;
+    let eventDate = req.body.eventDate;
+    let category = "calendarEvent";
+    let post = postEvent(eventTopic, category, user, eventDate);
+
+    if (eventTopic.length > 0 && eventTopic.length < 20) {
+      util.insertOne(collection, post);
+      res.status(200).json({ success: { message: "Save successful" } });
+    } else {
+      res.status(200).json({ error: { message: "Topic must have a length between 1-20charcaters. Please try again" } });
+    }
+  });
+
+  memberController.get("/calendar", util.logRequest, async (req, res, next) => {
+    if (req.session.userId) {
+      let collection = client.db().collection(req.session.userId);
+      let posts = await util.find(collection, { Category: "calendarEvent" });
+      res.status(200).json(posts);
+    } else {
+      console.log("failed to get events");
+      res.status(200).json({ error: { message: "failed to get events" } });
     }
   });
 

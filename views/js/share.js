@@ -23,31 +23,20 @@
       '<button class=" navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span></button>' +
       '<a class="navbar-brand me-auto" href="login.html">' +
       '<code class="h3 fw-bold  px-3">Planner</code></a>' +
-      '<button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"aria-label="Toggle navigation">' +
-      '<span class="navbar-toggler-icon"></span></button>' +
-      '<div class="collapse navbar-collapse" id="navbarSupportedContent">' +
-      '<form class="d-flex ms-auto"><input class="form-control" type="search" placeholder="Search" aria-label="Search">' +
-      '<button class="btn btn-outline-dark" type="submit"><i class="fa-brands fa-searchengin"></i></button>' +
-      "</form>" +
-      '<ul class="navbar-nav align-middle mb-2 mb-lg-0">' +
-      '<li class="nav-item dropdown me-3">' +
-      '<a class="nav-link dropdown-toggle h3 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>' +
-      '<ul class="dropdown-menu dropdown-menu-end">' +
-      '<li><a class="dropdown-item" href="flags.html">Flags of Countries</a></li>' +
-      '<li><a class="dropdown-item" href="area.html">Area of Countries</a></li></ul></li>' +
-      "</ul>" +
+      // '<button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"aria-label="Toggle navigation">' +
+      // '<span class="navbar-toggler-icon"></span></button>' +
+      // '<div class="collapse navbar-collapse" id="navbarSupportedContent">' +
+      // '<form class="d-flex ms-auto"><input class="form-control" type="search" placeholder="Search" aria-label="Search">' +
+      // '<button class="btn btn-outline-dark" type="submit"><i class="fa-brands fa-searchengin"></i></button>' +
+      // "</form>" +
+      // '<ul class="navbar-nav align-middle mb-2 mb-lg-0">' +
+      // '<li class="nav-item dropdown me-3">' +
+      // '<a class="nav-link dropdown-toggle h3 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>' +
+      // '<ul class="dropdown-menu dropdown-menu-end">' +
+      // '<li><a class="dropdown-item" href="flags.html">Flags of Countries</a></li>' +
+      // '<li><a class="dropdown-item" href="area.html">Area of Countries</a></li></ul></li>' +
+      // "</ul>" +
       "</div></div></nav>";
-  };
-
-  const setFooter = () => {
-    let footer = document.createElement("footer");
-    footer.innerHTML = "<kbd> &copy; <span></span> Kelvin Fu. All Rights Reserved.";
-    document.querySelector('div[class="h4 text-center"]').appendChild(footer);
-  };
-
-  const setCopyrightYear = () => {
-    let year = new Date().getFullYear();
-    document.querySelector("footer>kbd>span").textContent = year;
   };
 
   const setLinkActive = () => {
@@ -66,8 +55,6 @@
     setStyle("css/spacelab.min.css");
     setFavoriteIcon();
     setHeader();
-    //setFooter();
-    // setCopyrightYear();
     setLinkActive();
   });
 })();

@@ -36,28 +36,10 @@
               <a href="./index.html" class="nav-link px-3 active"><span class="me-2"></span>Home</a>
             </li>
             <li>
-              <a href="./calendar.html" class="nav-link px-3 active"><span class="me-2"></span>Calendar</a>
-            </li>
-
-            <li class="my-2">
-              <hr />
+              <a href="./calendar.html" class="nav-link px-3"><span class="me-2"></span>Calendar</a>
             </li>
             <li>
-              <div class="text-muted small fw-bold text-uppercase px-3">Interface</div>
-            </li>
-            <li>
-              <a class="nav-link px-4 sidebar-link mt-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                <span>Finance</span> <span class="right-icon ms-auto"><i class="fa-solid fa-chevron-down"></i></span
-              ></a>
-              <div class="collapse" id="collapseExample">
-                <div>
-                  <ul class="navbar-nav ps-3">
-                    <li>
-                      <a href="#" class="nav-link px-3" data-page="calendar">Expenses</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <a href="./budget.html" class="nav-link px-3"><span class="me-2"></span>Budget</a>
             </li>
           </ul>
         </nav>
@@ -69,63 +51,68 @@
         <div class="row align-items-center">
           <!-- Today Date -->
           <div class="col-md-2 col-sm-2 col-xs-2 fw-bold text-center">
-            <div>13 March</div>
-            <div>Tuesday</div>
+            <div id="todayDate"></div>
+            <div class="todayDay"></div>
           </div>
           <!-- /Today Date -->
+          <!--Weather Block-->
           <div class="col-md-10 col-sm-10 col-xs-10 weatherBlock">
             <div class="row d-flex flex-nowrap align-items-center">
               <div class="col text-center">
-                <div class="fw-bold">Vancouver</div>
+                <div class="fw-bold" id="city"></div>
                 <div class="small">Weather</div>
               </div>
-              <div class="col text-center">10 ºC</div>
               <div class="col text-center">
-                <div class="fw-bold align-middle">Sunday</div>
-                <div class="small">14 ºC</div>
-                <div class="small">10 ºC</div>
+                <div class="fw-bold">Current</div>
+                <div class="currentTemp"></div>
               </div>
               <div class="col text-center">
-                <div class="fw-bold">Monday</div>
-                <div class="small">14 ºC</div>
-                <div class="small">10 ºC</div>
+                <div class="fw-bold align-middle weekdays"></div>
+                <div class="small HighTemp">14 ºC</div>
+                <div class="small lowTemp">10 ºC</div>
               </div>
               <div class="col text-center">
-                <div class="fw-bold">Tuesday</div>
-                <div class="small">14 ºC</div>
-                <div class="small">10 ºC</div>
+                <div class="fw-bold weekdays"></div>
+                <div class="small HighTemp">14 ºC</div>
+                <div class="small lowTemp">10 ºC</div>
               </div>
               <div class="col text-center">
-                <div class="fw-bold">Wednesday</div>
-                <div class="small">14 ºC</div>
-                <div class="small">10 ºC</div>
+                <div class="fw-bold weekdays"></div>
+                <div class="small HighTemp">14 ºC</div>
+                <div class="small lowTemp">10 ºC</div>
               </div>
               <div class="col text-center">
-                <div class="fw-bold">Thursday</div>
-                <div class="small">14 ºC</div>
-                <div class="small">10 ºC</div>
+                <div class="fw-bold weekdays"></div>
+                <div class="small HighTemp">14 ºC</div>
+                <div class="small lowTemp">10 ºC</div>
               </div>
               <div class="col text-center">
-                <div class="fw-bold">Friday</div>
-                <div class="small">14 ºC</div>
-                <div class="small">10 ºC</div>
+                <div class="fw-bold weekdays"></div>
+                <div class="small HighTemp">14 ºC</div>
+                <div class="small lowTemp">10 ºC</div>
               </div>
               <div class="col text-center">
-                <div class="fw-bold">Saturday</div>
-                <div class="small">14 ºC</div>
-                <div class="small">10 ºC</div>
+                <div class="fw-bold weekdays"></div>
+                <div class="small HighTemp">14 ºC</div>
+                <div class="small lowTemp">10 ºC</div>
+              </div>
+              <div class="col text-center">
+                <div class="fw-bold weekdays"></div>
+                <div class="small HighTemp">14 ºC</div>
+                <div class="small lowTemp">10 ºC</div>
               </div>
             </div>
           </div>
+          <!--Weather Block-->
         </div>
         <hr />
         <div class="row">
           <div class="col-lg-3">
             <div class="card mx-3">
-              <div class="card-body">Digital Clock 14:23:51</div>
+              <div class="card-body clock">Current Time: 14:23:51</div>
             </div>
             <div class="card mx-3 mt-3">
-              <div class="card-header">Today's Schedule</div>
+              <div class="card-header">Quick Check List</div>
               <div class="card-body">
                 <ul class="list-group">
                   <li class="list-group-item">
@@ -141,6 +128,14 @@
                     <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
                   </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card">
+              <div class="colorBlock card-header">Notes:</div>
+              <div class="card-body">
+                <textarea name="notes" id="notes" rows="14."></textarea>
               </div>
             </div>
           </div>
@@ -171,13 +166,30 @@
             </div>
           </div>
         </div>
+        <div class="row mt-3">
+          <div class="col-md-12 col-sm-12 col-xs-12 fw-bold">
+            <div class="card">
+              <div class="card-header">Agenda</div>
+              <div class="card-body">
+                <div>Today</div>
+                <table class="table agenda today table-hover">
+                  <tbody></tbody>
+                </table>
+
+                <div>Tomorrow</div>
+                <table class="table agenda tomorrow table-hover">
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="Calendar"><div>YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO</div></section>
     <script src="js/share.js"></script>
-    <!-- <script src="js/script.js"></script> -->
     <script src="js/calendar.js"></script>
+    <script src="js/weather.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

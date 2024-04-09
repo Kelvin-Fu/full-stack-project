@@ -71,7 +71,7 @@
   position: absolute;
   content: "";
   left: 50%;
-  top: 50%;
+  top: 33%;
   height: 30px;
   width: 30px;
   z-index: -1;
@@ -83,4 +83,26 @@
 }
 .days li:not(.active):hover::before {
   background: #f2f2f2;
+}
+
+.colorBlock {
+  padding: 12px !important;
+}
+
+#notes {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.table.agenda tr {
+  margin: 20px 0px;
+  height: 50px;
+}
+
+.table.agenda tr td {
+  font-weight: normal;
 }

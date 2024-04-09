@@ -30,7 +30,7 @@
               >
             </li>
             <li>
-              <div class="text-muted small fw-bold text-uppercase px-3 mt-4">CORE</div>
+              <div class="text-muted fw-bold text-uppercase px-3 mb-2">CORE</div>
             </li>
             <li>
               <a href="./index.html" class="nav-link px-3 active"><span class="me-2"></span>Home</a>
@@ -46,14 +46,14 @@
               <div class="text-muted small fw-bold text-uppercase px-3">Interface</div>
             </li>
             <li>
-              <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                <span>Layout</span> <span class="right-icon ms-auto"><i class="fa-solid fa-chevron-down"></i></span
+              <a class="nav-link px-4 sidebar-link mt-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <span>Finance</span> <span class="right-icon ms-auto"><i class="fa-solid fa-chevron-down"></i></span
               ></a>
               <div class="collapse" id="collapseExample">
                 <div>
                   <ul class="navbar-nav ps-3">
                     <li>
-                      <a href="index.html" class="nav-link px-3" data-page="calendar">Calendar</a>
+                      <a href="#" class="nav-link px-3" data-page="calendar">Expenses</a>
                     </li>
                   </ul>
                 </div>
@@ -120,7 +120,7 @@
         </div>
         <!-- <hr /> -->
         <div class="row">
-          <!-- my calendar-->
+          <!-- calendar-->
           <div class="col-lg-12 col-md-12 px-5 mt-lg-0 mt-md-3">
             <div class="card wrapper">
               <header class="card-header">
@@ -146,13 +146,31 @@
               </div>
             </div>
           </div>
+          <!-- calendar-->
         </div>
+        <!--Add event pop up-->
+        <div class="popup-overlay" id="popupOverlay">
+          <div class="popup" id="popup">
+            <span class="close" id="closePopup">&times;</span>
+            <div class="popup-content">
+              <p>New event:</p>
+              <form action="#">
+                <label for="eventTitle">Title:</label>
+                <input type="text" name="eventTitle" id="eventTitle" placeholder="Add Title" />
+                <label for="eventDate">Date:</label>
+                <input type="date" name="eventDate" id="eventDate" />
+                <button id="submitForm">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--Add event pop up-->
       </div>
     </section>
 
     <script src="js/share.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/calendar.js"></script>
+    <script src="js/event.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

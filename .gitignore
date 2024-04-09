@@ -1,0 +1,9 @@
+#.gitignore
+# Dependency directories
+node_modules/
+
+my-local-repo/
+# Optional npm cache directory
+.npm
+# d o t e n v e n v i r o n m e n t v a r i a b l e s f i l e
+.env
