@@ -14,6 +14,14 @@
 .sidebar-link .right-icon {
   display: inline-flex !important;
 }
+
+.spaceBlock {
+  height: 40px;
+}
+
+#finalTotal {
+  text-align: right;
+}
 @media (min-width: 992px) {
   header {
     display: none;
@@ -21,6 +29,9 @@
   }
   body {
     overflow: auto;
+  }
+  .spaceBlock {
+    display: none;
   }
   section {
     margin-left: var(--offcanvas-width);
@@ -31,7 +42,5 @@
   .sidebar-nav {
     transform: none !important;
     visibility: visible !important;
-    /* top: var(--topNavbarHeight) !important; */
-    /* height: calc(100% - var(--topNavbarHeight)); */
   }
 }

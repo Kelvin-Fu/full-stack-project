@@ -106,3 +106,9 @@
 .table.agenda tr td {
   font-weight: normal;
 }
+
+.checkItems {
+  width: 80%;
+  border: 0px solid #ccc;
+  border-radius: 5px;
+}

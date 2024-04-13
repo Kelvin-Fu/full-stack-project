@@ -110,6 +110,22 @@
     }
   };
 
+  const guestSignin = async (event) => {
+    event.preventDefault();
+    console.log("inside guest sign in function");
+    let email = "guest";
+    let password = "111";
+
+    const reply = await postData("/guestSignin", { email, password });
+    if (reply.error) {
+      console.log(reply.error.message);
+      show(loginWarning);
+    } else if (reply.success) {
+      console.log(reply);
+      window.location.href = "/index.html"; //redirect
+    }
+  };
+
   document.addEventListener("DOMContentLoaded", () => {
     //When first load in page
     displaySection(navigation.signIn);
@@ -130,6 +146,10 @@
 
     document.querySelector("#signup").onclick = signup;
     document.querySelector("#signin").onclick = signin;
+    const guests = document.querySelectorAll(".guestLogin");
+    guests.forEach((ele) => {
+      ele.onclick = guestSignin;
+    });
   });
   //----------------------------------------------------
 })();

@@ -1,6 +1,6 @@
 (() => {
   const MongoClient = require("mongodb").MongoClient;
-  const connection = require("./config/config"); //Mongodb資料
+  const connection = require("./config/config");
   const Log = require("./log.js");
   let mongoClient = undefined;
   //-------------------------------------------------------------------------
@@ -9,7 +9,7 @@
    */
   //-------------------------------------------------------------------------
   //----------------------------------------------------------------
-  //檢查是否local host, return mongoClient object
+
   const getMongoClient = (local = true) => {
     let uri = `mongodb+srv://${connection.USERNAME}:${connection.PASSOWRD}@${connection.SERVER}/${connection.DATABASE}?retryWrites=true&w=majority`;
     if (local) {
@@ -70,11 +70,11 @@
       });
   };
   //-------------------------------------------------------------------------
-  //拿db uri, 連接, 儲存到request collection
+
   const logRequest = async (req, res, next) => {
-    const client = util.getMongoClient(); //拎MongoClient w/ 正確uri
+    const client = util.getMongoClient();
     client
-      .connect() //連接mongodb
+      .connect()
       .then((conn) => {
         console.log("\t|inside connect()");
         console.log("\t|Connected successfully to MongoDB!", conn.s.url.replace(/:([^:@]{1,})@/, ":****@"));
@@ -83,10 +83,10 @@
          * Like a database, a collection will be created if it does not exist
          * The collection will only be created once we insert a document
          */
-        let collection = client.db().collection("Requests"); //建立collection variable
-        let log = Log(req.method, req.url, req.query, res.statusCode); //object log = request資料
+        let collection = client.db().collection("Requests");
+        let log = Log(req.method, req.url, req.query, res.statusCode);
         //console.log(log)
-        util.insertOne(collection, log); //儲存資料到db
+        util.insertOne(collection, log);
       })
       .catch((err) => console.log(`\t|Could not connect to MongoDB Server\n\t|${err}`))
       .finally(() => {
@@ -109,7 +109,9 @@
     insertMany: insertMany,
     getMongoClient: getMongoClient,
     logRequest: logRequest,
+    deleteMany,
+    deleteOne,
   };
   const moduleExport = util;
-  if (typeof __dirname != "undefined") module.exports = moduleExport; //export obejct包含不同functions
+  if (typeof __dirname != "undefined") module.exports = moduleExport;
 })();
