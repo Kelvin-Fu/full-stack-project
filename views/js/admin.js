@@ -21,19 +21,6 @@
     return response.json(); // parses JSON response into native JavaScript objects
   };
 
-  //convert yyyy-mm-dd to mmm-dd format
-  const convertDate = (date) => {
-    let [year, month, day] = date.split("-");
-    const formattedMonth = Object.keys(monthMap).find((key) => monthMap[key] === month);
-    if (day.charAt(0) === "0") {
-      day = day.slice(1); // Remove the first character
-    }
-    return `${formattedMonth}-${day}`;
-  };
-  const truncateString = (str, maxLength) => {
-    return str.length > maxLength ? str.substring(0, maxLength) : str;
-  };
-
   //close the pop up form
   const openPopup = (event) => {
     popupOverlay.style.display = "block";

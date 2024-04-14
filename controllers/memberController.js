@@ -1,7 +1,6 @@
 (() => {
   const util = require("../models/util.js");
   const config = require("../server/config/config");
-  //const Post = require("../models/post"); //要Post的資料Object
   const postEvent = require("../models/postEvent");
   const postCheckList = require("../models/postCheckList");
   const client = util.getMongoClient(); // (false) for non local database
@@ -11,9 +10,7 @@
   const express = require("express");
   const memberController = express.Router();
   const axios = require("axios");
-  //import fetch from "node-fetch";
 
-  //logRequest會連接到db然後儲存資料到Request
   const getJSONData = async (url) => {
     try {
       const response = await axios.get(url);
@@ -58,10 +55,8 @@
     console.log("Inside member controller get index");
 
     if (userId) {
-      //console.log("User authenticated!!!");
       next();
     } else {
-      //console.log("User is not authenticated!!");
       res.redirect("/login");
     }
   });
@@ -72,10 +67,8 @@
     console.log("Inside member controller get index");
 
     if (userId) {
-      //console.log("User authenticated!!!");
       next();
     } else {
-      //console.log("User is not authenticated!!");
       res.redirect("/login");
     }
   });
@@ -171,6 +164,9 @@
 
   memberController.post("/createEvent", util.logRequest, async (req, res) => {
     console.log("\t|Inside createEvent");
+    if (req.session.role == "guest") {
+      res.status(200).json({ error: { message: "failed to get events" } });
+    }
     if (req.session.role != "guest") {
       const userId = req.session.userId;
 
@@ -206,6 +202,9 @@
 
   memberController.post("/createCheckList", util.logRequest, async (req, res) => {
     console.log("\t|Inside createCheckList");
+    if (req.session.role == "guest") {
+      res.status(200).json({ error: { message: "failed to get events" } });
+    }
     if (req.session.role != "guest") {
       const userId = req.session.userId;
 
@@ -229,6 +228,9 @@
   });
 
   memberController.get("/checkList", util.logRequest, async (req, res, next) => {
+    if (req.session.role == "guest") {
+      res.status(200).json({ error: { message: "failed to get events" } });
+    }
     if (req.session.role != "guest") {
       if (req.session.userId) {
         let collection = client.db().collection(req.session.userId);
@@ -243,6 +245,9 @@
 
   memberController.post("/createNotes", util.logRequest, async (req, res) => {
     console.log("\t|Inside createNotes");
+    if (req.session.role == "guest") {
+      res.status(200).json({ error: { message: "failed to get events" } });
+    }
     if (req.session.role != "guest") {
       const userId = req.session.userId;
 
@@ -270,6 +275,9 @@
   });
 
   memberController.get("/notes", util.logRequest, async (req, res, next) => {
+    if (req.session.role == "guest") {
+      res.status(200).json({ error: { message: "failed to get events" } });
+    }
     if (req.session.role != "guest") {
       if (req.session.userId) {
         let collection = client.db().collection(req.session.userId);
@@ -283,23 +291,23 @@
   });
 
   memberController.get("/weatherInfo", util.logRequest, async (req, res, next) => {
-    if (req.session.role != "guest") {
-      try {
-        const latitude = req.query.lat;
-        const longitude = req.query.long;
-        const urlWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${config.API_WEATHER}`;
-        //const urlWeather = "./js/city.json";
-        const data = await getJSONData(urlWeather);
-        res.status(200).json(data);
-      } catch (e) {
-        console.log("failed to get events");
-        res.status(200).json({ error: { message: "failed to get notes" } });
-      }
+    try {
+      const latitude = req.query.lat;
+      const longitude = req.query.long;
+      const urlWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${config.API_WEATHER}`;
+      const data = await getJSONData(urlWeather);
+      res.status(200).json(data);
+    } catch (e) {
+      console.log("failed to get events");
+      res.status(200).json({ error: { message: "failed to get notes" } });
     }
   });
 
   memberController.post("/createBudget", util.logRequest, async (req, res) => {
     console.log("\t|Inside createBudget");
+    if (req.session.role == "guest") {
+      res.status(200).json({ error: { message: "failed to get events" } });
+    }
     if (req.session.role != "guest") {
       const userId = req.session.userId;
 

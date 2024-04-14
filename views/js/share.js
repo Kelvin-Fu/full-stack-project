@@ -32,26 +32,7 @@
   };
   const setHeader = () => {
     let header = document.querySelector("header");
-    header.innerHTML =
-      '<nav class="navbar navbar-expand-lg fixed-top " style="background-color: #f5ebe0;">' +
-      '<div class="container-fluid">' +
-      '<button class=" navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span></button>' +
-      '<a class="navbar-brand me-auto" href="login.html">' +
-      '<code class="h3 fw-bold  px-3">Planner</code></a>' +
-      // '<button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"aria-label="Toggle navigation">' +
-      // '<span class="navbar-toggler-icon"></span></button>' +
-      // '<div class="collapse navbar-collapse" id="navbarSupportedContent">' +
-      // '<form class="d-flex ms-auto"><input class="form-control" type="search" placeholder="Search" aria-label="Search">' +
-      // '<button class="btn btn-outline-dark" type="submit"><i class="fa-brands fa-searchengin"></i></button>' +
-      // "</form>" +
-      // '<ul class="navbar-nav align-middle mb-2 mb-lg-0">' +
-      // '<li class="nav-item dropdown me-3">' +
-      // '<a class="nav-link dropdown-toggle h3 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>' +
-      // '<ul class="dropdown-menu dropdown-menu-end">' +
-      // '<li><a class="dropdown-item" href="flags.html">Flags of Countries</a></li>' +
-      // '<li><a class="dropdown-item" href="area.html">Area of Countries</a></li></ul></li>' +
-      // "</ul>" +
-      "</div></div></nav>";
+    header.innerHTML = '<nav class="navbar navbar-expand-lg fixed-top " style="background-color: #f5ebe0;">' + '<div class="container-fluid">' + '<button class=" navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span></button>' + '<a class="navbar-brand me-auto" href="login.html">' + '<code class="h3 fw-bold  px-3">Planner</code></a>' + "</div></div></nav>";
   };
 
   const setLinkActive = () => {

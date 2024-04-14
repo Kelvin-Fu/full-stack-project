@@ -55,7 +55,6 @@
       .then((res) => console.log("Data inserted with IDs", res.insertedIds))
       .catch((err) => {
         console.log("Could not add data ", err.message);
-        //For now, ingore duplicate entry errors, otherwise re-throw the error for the next catch
         if (!(err.name === "BulkWriteError" && err.code === 11000)) throw err;
       });
   };
@@ -65,7 +64,6 @@
       .then((res) => console.log("Data inserted with ID", res.insertedId))
       .catch((err) => {
         console.log("Could not add data ", err.message);
-        //For now, ingore duplicate entry errors, otherwise re-throw the error for the next catch
         if (!(err.name === "BulkWriteError" && err.code === 11000)) throw err;
       });
   };
@@ -78,11 +76,7 @@
       .then((conn) => {
         console.log("\t|inside connect()");
         console.log("\t|Connected successfully to MongoDB!", conn.s.url.replace(/:([^:@]{1,})@/, ":****@"));
-        /**
-         * Create a collection in a MongoDB database
-         * Like a database, a collection will be created if it does not exist
-         * The collection will only be created once we insert a document
-         */
+
         let collection = client.db().collection("Requests");
         let log = Log(req.method, req.url, req.query, res.statusCode);
         //console.log(log)

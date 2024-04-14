@@ -7,16 +7,6 @@
    * Utility functions
    */
   //----------------------------------------------------
-  const getJSONData = async (url) => {
-    try {
-      const response = await window.fetch(url);
-      const data = response.json();
-      return data;
-    } catch (error) {
-      console.log("\t|Something went wrong while fetching JSON data!");
-    }
-  };
-
   //get user current location
   const getGeoLocation = () => {
     return new Promise((resolve, reject) => {
@@ -96,8 +86,8 @@
             }
           }
           if (currDate != prevDate) {
-            highTemp[i].innerHTML = max + "°C"; //element.main.temp_max + "°C";
-            lowTemp[i].innerHTML = min + "°C"; // prevElement.main.temp_min + "°C";
+            highTemp[i].innerHTML = max + "°C";
+            lowTemp[i].innerHTML = min + "°C";
             days[i].innerHTML = weekday[today.getDay()];
             today.setDate(today.getDate() + 1);
             i++;
@@ -270,7 +260,7 @@
   };
 
   window.onload = () => {
-    //displayWeatherData();
+    displayWeatherData();
     getEvent();
     getCheckList();
     getNote();
